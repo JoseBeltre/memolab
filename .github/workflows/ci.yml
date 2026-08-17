@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    name: Lint, tipos y pruebas
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.22.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Análisis estático (ESLint)
+        run: pnpm lint
+
+      - name: Verificación de tipos (TypeScript)
+        run: pnpm typecheck
+
+      - name: Pruebas unitarias con Jest
+        run: pnpm test -- --coverage
+
+      - name: Crear .env con valores de marcador
+        run: |
+          echo "NUXT_PUBLIC_SUPABASE_URL=https://placeholder.supabase.co" >> .env
+          echo "NUXT_PUBLIC_SUPABASE_KEY=placeholder" >> .env
+          echo "NUXT_SUPABASE_SERVICE_KEY=placeholder" >> .env
+
+      - name: Construir la aplicación
+        run: pnpm build

@@ -1,0 +1,42 @@
+{
+  "name": "memolab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.123",
+    "@iconify-json/simple-icons": "^1.2.93",
+    "@nuxt/ui": "^4.10.0",
+    "@nuxtjs/supabase": "^2.0.10",
+    "@pinia/nuxt": "^1.0.2",
+    "@supabase/supabase-js": "^2.112.3",
+    "nuxt": "^4.5.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-typescript": "^8.0.1",
+    "@nuxt/eslint": "^1.17.0",
+    "@types/jest": "^30.0.0",
+    "@vue/test-utils": "^2.4.11",
+    "babel-jest": "^30.4.1",
+    "eslint": "^10.8.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "selenium-webdriver": "^4.47.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.10"
+  },
+  "packageManager": "pnpm@11.22.0"
+}
