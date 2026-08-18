@@ -6,5 +6,6 @@ export default {
     '^.+\\.ts$': 'babel-jest'
   },
   moduleFileExtensions: ['ts', 'js', 'json'],
+  collectCoverageFrom: ['<rootDir>/app/utils/**/*.ts'],
   passWithNoTests: true
 }

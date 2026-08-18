@@ -41,8 +41,14 @@ jobs:
       - name: Verificación de tipos de las pruebas
         run: pnpm typecheck:tests
 
-      - name: Pruebas unitarias con Jest
+      - name: Pruebas unitarias con Jest y reporte de cobertura
         run: pnpm test -- --coverage
 
       - name: Construir la aplicación
         run: pnpm build
+
+      - name: Publicar el reporte de cobertura
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura
+          path: coverage
