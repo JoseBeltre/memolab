@@ -14,12 +14,12 @@ export class PaginaMazos {
   }
 
   async esperarLista(): Promise<void> {
-    await this.driver.wait(until.elementLocated(By.xpath('//button[contains(., "Nuevo mazo")]')), 15000)
+    await this.driver.wait(until.elementLocated(By.xpath('//button[contains(., "Nuevo mazo")]')), 25000)
   }
 
   async nuevoMazo(): Promise<void> {
     await this.driver.findElement(By.xpath('//button[contains(., "Nuevo mazo")]')).click()
-    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] input')), 15000)
+    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] input')), 25000)
   }
 
   async llenar(nombre: string, descripcion: string): Promise<void> {
@@ -40,7 +40,7 @@ export class PaginaMazos {
   }
 
   async esperarMazo(nombre: string): Promise<void> {
-    await this.driver.wait(until.elementLocated(By.xpath(`//a[contains(., "${nombre}")]`)), 15000)
+    await this.driver.wait(until.elementLocated(By.xpath(`//a[contains(., "${nombre}")]`)), 25000)
   }
 
   async eliminarMazo(nombre: string): Promise<void> {

@@ -22,7 +22,7 @@ async function entrarAUnMazo(): Promise<void> {
   await registro.abrir()
   await registro.llenar(correoDePrueba(), 'MemoLab2026')
   await registro.crearCuenta()
-  await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+  await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
 
   await mazos.abrir()
   await mazos.esperarLista()

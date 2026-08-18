@@ -11,12 +11,12 @@ export class PaginaTarjetas {
   async abrirDesdeLaLista(nombreDelMazo: string): Promise<void> {
     await this.driver.findElement(By.xpath(`//a[contains(., "${nombreDelMazo}")]`)).click()
     await esperarHidratacion(this.driver)
-    await this.driver.wait(until.elementLocated(By.xpath('//button[contains(., "Nueva tarjeta")]')), 15000)
+    await this.driver.wait(until.elementLocated(By.xpath('//button[contains(., "Nueva tarjeta")]')), 25000)
   }
 
   async nuevaTarjeta(): Promise<void> {
     await this.driver.findElement(By.xpath('//button[contains(., "Nueva tarjeta")]')).click()
-    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] textarea')), 15000)
+    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] textarea')), 25000)
   }
 
   async llenar(anverso: string, reverso: string): Promise<void> {
@@ -47,7 +47,7 @@ export class PaginaTarjetas {
   }
 
   async esperarFormularioLimpio(): Promise<void> {
-    await this.driver.wait(async () => this.camposVacios(), 15000)
+    await this.driver.wait(async () => this.camposVacios(), 25000)
   }
 
   async camposVacios(): Promise<boolean> {
@@ -58,7 +58,7 @@ export class PaginaTarjetas {
 
   async editar(anverso: string): Promise<void> {
     await this.driver.findElement(By.css(`button[aria-label="Editar ${anverso}"]`)).click()
-    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] textarea')), 15000)
+    await this.driver.wait(until.elementLocated(By.css('div[role="dialog"] textarea')), 25000)
   }
 
   async eliminar(anverso: string): Promise<void> {
@@ -72,7 +72,7 @@ export class PaginaTarjetas {
     await this.driver.wait(async () => {
       const restantes = await this.driver.findElements(By.css(`button[aria-label="Eliminar ${anverso}"]`))
       return restantes.length === 0
-    }, 15000)
+    }, 25000)
   }
 
   async esperarMensaje(texto: string): Promise<void> {

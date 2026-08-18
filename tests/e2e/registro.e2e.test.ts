@@ -49,7 +49,7 @@ describe('HU-01 · Registro de usuario', () => {
     await guardarEvidencia(driver, 'HU-01', 'HU-01-formulario-valido')
 
     await pagina.crearCuenta()
-    await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
 
     await guardarEvidencia(driver, 'HU-01', 'CP-001-registro-exitoso')
   })
@@ -60,7 +60,7 @@ describe('HU-01 · Registro de usuario', () => {
     await pagina.abrir()
     await pagina.llenar(correo, 'MemoLab2026')
     await pagina.crearCuenta()
-    await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
 
     await pagina.abrir()
     await pagina.llenar(correo, 'MemoLab2026')

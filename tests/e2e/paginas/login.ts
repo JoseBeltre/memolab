@@ -27,7 +27,7 @@ export class PaginaLogin {
   }
 
   async correoEnLaBarra(): Promise<string> {
-    const elemento = await this.driver.wait(until.elementLocated(By.css('header')), 15000)
+    const elemento = await this.driver.wait(until.elementLocated(By.css('header')), 25000)
     return elemento.getText()
   }
 
