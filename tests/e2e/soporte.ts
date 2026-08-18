@@ -39,7 +39,12 @@ export async function arrancarServidor(): Promise<ChildProcess> {
 
 export async function abrirNavegador(): Promise<WebDriver> {
   const opciones = new chrome.Options()
-  opciones.addArguments('--headless=new', '--no-sandbox', '--disable-dev-shm-usage', '--window-size=1280,800')
+  opciones.addArguments('--no-sandbox', '--disable-dev-shm-usage', '--window-size=1280,800')
+
+  // Con VER_NAVEGADOR=1 la ventana se abre a la vista, para la demostración.
+  if (!process.env.VER_NAVEGADOR) {
+    opciones.addArguments('--headless=new')
+  }
 
   return new Builder().forBrowser('chrome').setChromeOptions(opciones).build()
 }
