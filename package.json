@@ -14,7 +14,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:e2e": "nuxt build && jest --config jest.e2e.config.mjs --runInBand",
-    "test:integracion": "jest --config jest.integracion.config.mjs"
+    "test:integracion": "jest --config jest.integracion.config.mjs",
+    "test:e2e:ver": "nuxt build && cross-env VER_NAVEGADOR=1 jest --config jest.e2e.config.mjs --runInBand"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.123",
@@ -36,6 +37,7 @@
     "@types/selenium-webdriver": "^4.35.6",
     "@vue/test-utils": "^2.4.11",
     "babel-jest": "^30.4.1",
+    "cross-env": "^10.1.0",
     "eslint": "^10.8.1",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
