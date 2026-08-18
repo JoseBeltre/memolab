@@ -54,6 +54,8 @@ async function handleLogout() {
       <slot />
     </UMain>
 
+    <PomodoroFlotante />
+
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
