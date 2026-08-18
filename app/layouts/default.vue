@@ -27,6 +27,11 @@ async function handleLogout() {
         </NuxtLink>
       </template>
 
+      <UNavigationMenu
+        v-if="user"
+        :items="[{ label: 'Mis mazos', to: '/mazos' }]"
+      />
+
       <template #right>
         <span
           v-if="user"
