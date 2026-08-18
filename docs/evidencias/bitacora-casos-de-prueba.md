@@ -40,6 +40,10 @@ de integración continua termina en verde.
 | CP-016 | HU-06 | Edición y eliminación de una tarjeta | Funcional | Selenium · `tests/e2e/tarjetas.e2e.test.ts` | Aprobado | `HU-06/CP-016-tarjeta-editada-y-eliminada.png` |
 | CP-017 | HU-09 | Inicio, pausa y reinicio del temporizador | Funcional | Selenium · `tests/e2e/pomodoro.e2e.test.ts` | Aprobado | `HU-09/CP-017-iniciar-pausar-reiniciar.png` |
 
+Aparte de los diecisiete casos, la suite de extremo a extremo incluye `adaptable.e2e.test.ts`, que
+recorre las pantallas principales en 360, 768 y 1920 píxeles de ancho para verificar RNF-07. Las
+capturas quedan en `adaptable/`.
+
 ## Notas de la ejecución
 
 - **CP-004.** Se borran las cookies del navegador y se escribe la dirección `/mazos` directamente: el
@@ -55,6 +59,40 @@ de integración continua termina en verde.
   1.3 segundos, muy por debajo de los 3 segundos que pide RNF-01. De paso quedan cubiertos el puntaje
   de rendimiento (98) y el de accesibilidad (96), este último por encima de los 90 puntos que pide
   RNF-08. El reporte y su resumen están en `rendimiento/`.
+
+## Verificación de los requerimientos no funcionales
+
+| Código | Cómo se verificó | Resultado |
+| --- | --- | --- |
+| RNF-01 | Lighthouse sobre la aplicación publicada | LCP de 1.3 s · cumple |
+| RNF-02 | `tests/integracion/seguridad.test.ts` mide alta, edición y baja de un mazo | 103 ms, 206 ms y 99 ms · cumple |
+| RNF-03 | Supabase Auth guarda las contraseñas cifradas con bcrypt | Cumple |
+| RNF-04 | `tests/integracion/seguridad.test.ts`, caso CP-014 | Cumple |
+| RNF-05 | Recorrido de usabilidad, ver más abajo | Máximo tres clics · cumple |
+| RNF-06 | Suite de Selenium sobre Chrome | Cumple en Chrome |
+| RNF-07 | `tests/e2e/adaptable.e2e.test.ts` en 360, 768 y 1920 px | Sin desbordes · cumple |
+| RNF-08 | Lighthouse sobre la aplicación publicada | 96 puntos de accesibilidad · cumple |
+| RNF-09 | Pasos de ESLint y de tipos en GitHub Actions | Cumple |
+| RNF-10 | Reporte de cobertura de Jest | SM-2 al 100 % · cumple |
+| RNF-11 | Revisión de `https://memolab.vercel.app` | Disponible · cumple |
+
+### Recorrido de usabilidad (RNF-05)
+
+Desde la pantalla principal, con la sesión iniciada, cada funcionalidad se alcanza así:
+
+| Funcionalidad | Camino | Clics |
+| --- | --- | --- |
+| Ver mis mazos | Bloque «Mis mazos» | 1 |
+| Crear un mazo | Bloque «Mis mazos», botón «Nuevo mazo» | 2 |
+| Ver las tarjetas de un mazo | Bloque «Mis mazos», nombre del mazo | 2 |
+| Crear una tarjeta | Bloque «Mis mazos», nombre del mazo, botón «Nueva tarjeta» | 3 |
+| Estudiar un mazo | Bloque «Mis mazos», nombre del mazo, botón «Estudiar» | 3 |
+| Usar el Pomodoro | Bloque «Pomodoro» | 1 |
+| Ver mis notas | Bloque «Notas» | 1 |
+| Crear una nota | Bloque «Notas», botón «Nueva nota» | 2 |
+
+Ninguna funcionalidad principal pasa de tres clics. El caso más largo es crear o estudiar una tarjeta,
+que son tres, porque hay que entrar al mazo primero.
 
 ## Defectos encontrados y corregidos durante el Sprint
 
