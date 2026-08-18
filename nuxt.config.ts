@@ -13,6 +13,11 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark'
+  },
+
   compatibilityDate: '2026-06-30',
 
   eslint: {
