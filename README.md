@@ -36,6 +36,7 @@ en el SQL Editor del proyecto de Supabase y crea las tablas con sus políticas d
 | `pnpm typecheck:tests` | Verificación de tipos de las pruebas |
 | `pnpm test` | Pruebas unitarias (Jest) |
 | `pnpm test:coverage` | Pruebas unitarias con reporte de cobertura |
+| `pnpm test:integracion` | Pruebas de integración de las políticas de seguridad |
 | `pnpm test:e2e` | Construye la aplicación y corre la suite de Selenium |
 
 Las pruebas de extremo a extremo levantan el build en el puerto 3100 y controlan Chrome con
@@ -65,8 +66,9 @@ app/
   utils/        validaciones, fechas y el algoritmo SM-2
 docs/
   base-de-datos/  esquema SQL con las políticas de seguridad
-  evidencias/     capturas y bitácora de los casos de prueba
+  evidencias/     bitácora de los 17 casos de prueba, capturas y auditoría de Lighthouse
 tests/
   unit/         pruebas unitarias con Jest
+  integracion/  pruebas de las políticas de seguridad contra Supabase
   e2e/          pruebas de extremo a extremo con Selenium (Page Object Model)
 ```
