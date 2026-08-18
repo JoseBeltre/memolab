@@ -7,6 +7,12 @@ const secciones = [
     descripcion: 'Organiza tus tarjetas por asignatura y repásalas.',
     icono: 'i-lucide-layers',
     ruta: '/mazos'
+  },
+  {
+    titulo: 'Notas',
+    descripcion: 'Guarda y busca los apuntes que acompañan tus repasos.',
+    icono: 'i-lucide-notebook-pen',
+    ruta: '/notas'
   }
 ]
 </script>

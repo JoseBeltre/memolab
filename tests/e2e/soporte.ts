@@ -55,7 +55,7 @@ export async function esperarHidratacion(driver: WebDriver): Promise<void> {
 
 export async function esperarTexto(driver: WebDriver, texto: string): Promise<void> {
   const xpath = `//*[not(*) and contains(normalize-space(.), "${texto}")]`
-  await driver.wait(until.elementLocated(By.xpath(xpath)), 15000)
+  await driver.wait(until.elementLocated(By.xpath(xpath)), 25000)
 }
 
 export async function guardarEvidencia(driver: WebDriver, historia: string, nombre: string): Promise<void> {

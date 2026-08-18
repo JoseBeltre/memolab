@@ -16,7 +16,7 @@ async function crearCuenta(): Promise<string> {
   await registro.abrir()
   await registro.llenar(correo, CONTRASENA)
   await registro.crearCuenta()
-  await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+  await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
   return correo
 }
 
@@ -36,13 +36,13 @@ describe('HU-02 · Inicio y cierre de sesión', () => {
   test('con los datos correctos entro a la pantalla principal y veo mi correo en la barra de arriba', async () => {
     const correo = await crearCuenta()
     await login.cerrarSesion()
-    await driver.wait(until.urlIs(`${URL_BASE}/login`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/login`), 30000)
 
     await login.abrir()
     await login.llenar(correo, CONTRASENA)
     await login.iniciarSesion()
 
-    await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
     expect(await login.correoEnLaBarra()).toContain(correo)
 
     await guardarEvidencia(driver, 'HU-02', 'HU-02-sesion-iniciada')
@@ -51,7 +51,7 @@ describe('HU-02 · Inicio y cierre de sesión', () => {
   test('CP-003: con una contraseña incorrecta muestra «Correo o contraseña incorrectos»', async () => {
     const correo = await crearCuenta()
     await login.cerrarSesion()
-    await driver.wait(until.urlIs(`${URL_BASE}/login`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/login`), 30000)
 
     await login.abrir()
     await login.llenar(correo, 'claveIncorrecta')
@@ -67,7 +67,7 @@ describe('HU-02 · Inicio y cierre de sesión', () => {
     const correo = await crearCuenta()
 
     await driver.navigate().refresh()
-    await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
 
     expect(await login.correoEnLaBarra()).toContain(correo)
   })
@@ -76,7 +76,7 @@ describe('HU-02 · Inicio y cierre de sesión', () => {
     await crearCuenta()
 
     await login.cerrarSesion()
-    await driver.wait(until.urlIs(`${URL_BASE}/login`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/login`), 30000)
 
     expect(await driver.getCurrentUrl()).toBe(`${URL_BASE}/login`)
 

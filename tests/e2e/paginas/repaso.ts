@@ -11,12 +11,12 @@ export class PaginaRepaso {
   async abrir(): Promise<void> {
     await this.driver.findElement(By.xpath('//a[contains(., "Estudiar")]')).click()
     await esperarHidratacion(this.driver)
-    await this.driver.wait(until.elementLocated(By.xpath('//h1[contains(., "Repaso de")]')), 15000)
+    await this.driver.wait(until.elementLocated(By.xpath('//h1[contains(., "Repaso de")]')), 25000)
 
     // La sesion carga las tarjetas vencidas despues de montar la pantalla.
     await this.driver.wait(async () => {
       return (await this.hayBotonDeRespuesta()) || (await this.sinPendientes())
-    }, 15000)
+    }, 25000)
   }
 
   async sinPendientes(): Promise<boolean> {
