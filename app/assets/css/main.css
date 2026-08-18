@@ -2,17 +2,42 @@
 @import "@nuxt/ui";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Google Sans', sans-serif;
+  --font-display: 'Changa One', sans-serif;
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+  --color-verde-50: #eef8f2;
+  --color-verde-100: #d6eee1;
+  --color-verde-200: #b0ddc5;
+  --color-verde-300: #83c7a4;
+  --color-verde-400: #5aac86;
+  --color-verde-500: #40906c;
+  --color-verde-600: #327456;
+  --color-verde-700: #2a5d47;
+  --color-verde-800: #244b3b;
+  --color-verde-900: #1f3e32;
+  --color-verde-950: #10241c;
+
+  --color-azul-50: #eef3fa;
+  --color-azul-100: #dae6f4;
+  --color-azul-200: #b6cbe8;
+  --color-azul-300: #8aabd7;
+  --color-azul-400: #618ac4;
+  --color-azul-500: #466fab;
+  --color-azul-600: #375888;
+  --color-azul-700: #2e486d;
+  --color-azul-800: #283c59;
+  --color-azul-900: #24334a;
+  --color-azul-950: #151e2c;
+
+  --color-carbon-50: #f5f6f8;
+  --color-carbon-100: #e7e9ed;
+  --color-carbon-200: #ccd1d9;
+  --color-carbon-300: #a4acba;
+  --color-carbon-400: #757f92;
+  --color-carbon-500: #566073;
+  --color-carbon-600: #3f4859;
+  --color-carbon-700: #2f3646;
+  --color-carbon-800: #232937;
+  --color-carbon-900: #171c27;
+  --color-carbon-950: #10141c;
 }

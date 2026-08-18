@@ -30,8 +30,6 @@ const mazoPorEliminar = ref<MazoConTarjetas | null>(null)
 const tituloFormulario = computed(() => (mazoEditado.value ? 'Editar mazo' : 'Nuevo mazo'))
 
 async function cargarMazos() {
-  cargando.value = true
-
   const { data: lista } = await client
     .from('mazos')
     .select('id, nombre, descripcion')
