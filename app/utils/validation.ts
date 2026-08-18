@@ -32,3 +32,21 @@ export function registrationErrorMessage(error: { code?: string, status?: number
   }
   return 'No se pudo crear la cuenta. Inténtalo de nuevo.'
 }
+
+export const DECK_NAME_REQUIRED_MESSAGE = 'El nombre del mazo es obligatorio'
+export const DECK_NAME_MAX_LENGTH = 60
+export const DECK_NAME_TOO_LONG_MESSAGE = `El nombre no puede pasar de ${DECK_NAME_MAX_LENGTH} caracteres`
+
+export function validateDeckName(name: string): string | null {
+  const value = name.trim()
+
+  if (value === '') {
+    return DECK_NAME_REQUIRED_MESSAGE
+  }
+
+  if (value.length > DECK_NAME_MAX_LENGTH) {
+    return DECK_NAME_TOO_LONG_MESSAGE
+  }
+
+  return null
+}

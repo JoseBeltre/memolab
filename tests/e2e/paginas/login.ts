@@ -32,7 +32,11 @@ export class PaginaLogin {
   }
 
   async cerrarSesion(): Promise<void> {
-    await this.driver.findElement(By.css('button[aria-label="Cerrar sesión"]')).click()
+    const salir = await this.driver.wait(
+      until.elementLocated(By.css('button[aria-label="Cerrar sesión"]')),
+      15000
+    )
+    await salir.click()
     const confirmar = await this.driver.wait(
       until.elementLocated(By.xpath('//div[@role="dialog"]//button[contains(., "Cerrar sesión")]')),
       15000

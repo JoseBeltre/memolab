@@ -1,10 +1,14 @@
 import {
+  DECK_NAME_MAX_LENGTH,
+  DECK_NAME_REQUIRED_MESSAGE,
+  DECK_NAME_TOO_LONG_MESSAGE,
   EMAIL_EXISTS_MESSAGE,
   EMAIL_INVALID_MESSAGE,
   PASSWORD_MIN_LENGTH,
   isValidEmail,
   isValidPassword,
   registrationErrorMessage,
+  validateDeckName,
   validateRegistration
 } from '../../app/utils/validation'
 
@@ -74,5 +78,24 @@ describe('HU-01 · criterio: contraseña con menos de ocho caracteres', () => {
   it('deja la validación inválida para que el botón de guardar siga deshabilitado', () => {
     expect(isValidPassword('1234567')).toBe(false)
     expect(validateRegistration('estudiante01@itla.edu.do', '1234567').valid).toBe(false)
+  })
+})
+
+describe('HU-03 · criterio: nombre del mazo', () => {
+  it('acepta un nombre válido', () => {
+    expect(validateDeckName('Programación III')).toBeNull()
+  })
+
+  it('muestra «El nombre del mazo es obligatorio» cuando queda vacío', () => {
+    expect(validateDeckName('')).toBe(DECK_NAME_REQUIRED_MESSAGE)
+    expect(validateDeckName('    ')).toBe(DECK_NAME_REQUIRED_MESSAGE)
+  })
+
+  it('indica el límite cuando el nombre pasa de 60 caracteres', () => {
+    expect(validateDeckName('a'.repeat(61))).toBe(DECK_NAME_TOO_LONG_MESSAGE)
+  })
+
+  it('acepta un nombre de exactamente 60 caracteres', () => {
+    expect(validateDeckName('a'.repeat(DECK_NAME_MAX_LENGTH))).toBeNull()
   })
 })
