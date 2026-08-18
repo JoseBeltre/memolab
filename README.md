@@ -38,9 +38,12 @@ en el SQL Editor del proyecto de Supabase y crea las tablas con sus políticas d
 | `pnpm test:coverage` | Pruebas unitarias con reporte de cobertura |
 | `pnpm test:integracion` | Pruebas de integración de las políticas de seguridad |
 | `pnpm test:e2e` | Construye la aplicación y corre la suite de Selenium |
+| `pnpm test:e2e:ver` | Lo mismo, pero con la ventana del navegador a la vista |
 
 Las pruebas de extremo a extremo levantan el build en el puerto 3100 y controlan Chrome con
-Selenium. Cada prueba crea su propio usuario con un correo generado al momento.
+Selenium. Cada prueba crea su propio usuario con un correo generado al momento. Por defecto el
+navegador corre oculto; con `pnpm test:e2e:ver` se abre la ventana para poder ver la ejecución, que
+es como se muestra en el video de la demostración.
 
 ## Release 1
 
