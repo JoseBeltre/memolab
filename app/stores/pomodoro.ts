@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import { validarDuracion } from '~/utils/pomodoro'
 
 const CLAVE = 'memolab-pomodoro'
