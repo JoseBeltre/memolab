@@ -9,6 +9,12 @@ const secciones = [
     ruta: '/mazos'
   },
   {
+    titulo: 'Pomodoro',
+    descripcion: 'Estudia en bloques de enfoque con descansos entre uno y otro.',
+    icono: 'i-lucide-timer',
+    ruta: '/pomodoro'
+  },
+  {
     titulo: 'Notas',
     descripcion: 'Guarda y busca los apuntes que acompañan tus repasos.',
     icono: 'i-lucide-notebook-pen',
