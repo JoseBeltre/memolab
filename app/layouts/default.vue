@@ -17,20 +17,11 @@ async function handleLogout() {
       <template #left>
         <NuxtLink
           to="/"
-          class="flex items-center gap-2 font-semibold"
+          class="font-display text-xl tracking-wide"
         >
-          <UIcon
-            name="i-lucide-brain-circuit"
-            class="size-5 text-primary"
-          />
           MemoLab
         </NuxtLink>
       </template>
-
-      <UNavigationMenu
-        v-if="user"
-        :items="[{ label: 'Mis mazos', to: '/mazos' }]"
-      />
 
       <template #right>
         <span
@@ -39,8 +30,6 @@ async function handleLogout() {
         >
           {{ user.email }}
         </span>
-
-        <UColorModeButton />
 
         <UButton
           v-if="user"
@@ -61,7 +50,7 @@ async function handleLogout() {
       </template>
     </UHeader>
 
-    <UMain class="flex-1">
+    <UMain class="flex flex-1 flex-col">
       <slot />
     </UMain>
 
