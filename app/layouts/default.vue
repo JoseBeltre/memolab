@@ -2,9 +2,12 @@
 const user = useSupabaseUser()
 const client = useSupabaseClient()
 
+const confirmarSalida = ref(false)
+
 async function handleLogout() {
+  confirmarSalida.value = false
   await client.auth.signOut()
-  await navigateTo('/')
+  await navigateTo('/login')
 }
 </script>
 
@@ -25,6 +28,13 @@ async function handleLogout() {
       </template>
 
       <template #right>
+        <span
+          v-if="user"
+          class="hidden sm:block text-sm text-muted"
+        >
+          {{ user.email }}
+        </span>
+
         <UColorModeButton />
 
         <UButton
@@ -33,15 +43,15 @@ async function handleLogout() {
           color="neutral"
           variant="ghost"
           aria-label="Cerrar sesión"
-          @click="handleLogout"
+          @click="confirmarSalida = true"
         />
         <UButton
           v-else
-          to="/registro"
+          to="/login"
           color="neutral"
           variant="ghost"
         >
-          Crear cuenta
+          Iniciar sesión
         </UButton>
       </template>
     </UHeader>
@@ -57,5 +67,27 @@ async function handleLogout() {
         </p>
       </template>
     </UFooter>
+
+    <UModal
+      v-model:open="confirmarSalida"
+      title="Cerrar sesión"
+      description="¿Seguro que quieres salir de tu cuenta?"
+    >
+      <template #footer>
+        <UButton
+          color="neutral"
+          variant="ghost"
+          @click="confirmarSalida = false"
+        >
+          Cancelar
+        </UButton>
+        <UButton
+          color="error"
+          @click="handleLogout"
+        >
+          Cerrar sesión
+        </UButton>
+      </template>
+    </UModal>
   </div>
 </template>
