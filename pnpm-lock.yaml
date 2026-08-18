@@ -48,6 +48,12 @@ importers:
       '@types/jest':
         specifier: ^30.0.0
         version: 30.0.0
+      '@types/node':
+        specifier: ^26.2.0
+        version: 26.2.0
+      '@types/selenium-webdriver':
+        specifier: ^4.35.6
+        version: 4.35.6
       '@vue/test-utils':
         specifier: ^2.4.11
         version: 2.4.11(@vue/compiler-dom@3.5.40)(@vue/server-renderer@3.5.40)(vue@3.5.40(typescript@6.0.3))
@@ -2712,6 +2718,9 @@ packages:
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
+  '@types/selenium-webdriver@4.35.6':
+    resolution: {integrity: sha512-8nfyMRi4VvkY9QrQGyY/zkleAhnjnmE8YtdEeoCrWe3izp1P9vo9f5VTNRYF0up+l+kn+VuZah+je+bLddNV+g==}
+
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
 
@@ -2723,6 +2732,9 @@ packages:
 
   '@types/web-bluetooth@0.0.21':
     resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
+
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -10056,6 +10068,11 @@ snapshots:
 
   '@types/resolve@1.20.2': {}
 
+  '@types/selenium-webdriver@4.35.6':
+    dependencies:
+      '@types/node': 26.2.0
+      '@types/ws': 8.18.1
+
   '@types/stack-utils@2.0.3': {}
 
   '@types/tough-cookie@4.0.5': {}
@@ -10063,6 +10080,10 @@ snapshots:
   '@types/web-bluetooth@0.0.20': {}
 
   '@types/web-bluetooth@0.0.21': {}
+
+  '@types/ws@8.18.1':
+    dependencies:
+      '@types/node': 26.2.0
 
   '@types/yargs-parser@21.0.3': {}
 
