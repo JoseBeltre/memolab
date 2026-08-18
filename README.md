@@ -11,7 +11,7 @@ Aplicación publicada: https://memolab.vercel.app
 - **Estado global:** Pinia
 - **Estilos:** Tailwind CSS y Nuxt UI
 - **Backend:** Supabase (PostgreSQL, Auth y API REST) con Row Level Security
-- **Pruebas:** Jest (unitarias) y Selenium (extremo a extremo)
+- **Pruebas:** Jest (unitarias e integración) y Selenium (extremo a extremo)
 - **CI/CD:** GitHub Actions y Vercel
 
 ## Puesta en marcha

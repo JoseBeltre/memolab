@@ -101,3 +101,37 @@ conBaseDeDatos('RNF-04 · Row Level Security', () => {
     expect(data).toEqual([{ nombre: 'Mazo privado de A' }])
   })
 })
+
+// RNF-02: crear, editar y eliminar deben responder en un segundo o menos.
+conBaseDeDatos('RNF-02 · Tiempo de respuesta de las operaciones', () => {
+  async function medir(operacion: () => PromiseLike<unknown>): Promise<number> {
+    const inicio = Date.now()
+    await operacion()
+    return Date.now() - inicio
+  }
+
+  test('crear, editar y eliminar un mazo responden en menos de un segundo', async () => {
+    let creado = ''
+
+    const alta = await medir(async () => {
+      const { data } = await usuarioA.cliente
+        .from('mazos')
+        .insert({ usuario_id: usuarioA.id, nombre: 'Mazo de rendimiento' })
+        .select('id')
+        .single()
+      creado = data!.id
+    })
+
+    const edicion = await medir(() =>
+      usuarioA.cliente.from('mazos').update({ nombre: 'Mazo corregido' }).eq('id', creado)
+    )
+
+    const baja = await medir(() => usuarioA.cliente.from('mazos').delete().eq('id', creado))
+
+    console.log(`Alta ${alta} ms · edición ${edicion} ms · baja ${baja} ms`)
+
+    expect(alta).toBeLessThan(1000)
+    expect(edicion).toBeLessThan(1000)
+    expect(baja).toBeLessThan(1000)
+  })
+})
