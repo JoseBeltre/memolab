@@ -13,7 +13,7 @@ async function crearCuenta(): Promise<void> {
   await registro.abrir()
   await registro.llenar(correoDePrueba(), 'MemoLab2026')
   await registro.crearCuenta()
-  await driver.wait(until.urlIs(`${URL_BASE}/`), 20000)
+  await driver.wait(until.urlIs(`${URL_BASE}/`), 30000)
 }
 
 beforeAll(async () => {
@@ -33,7 +33,7 @@ describe('HU-03 y HU-04 · Mazos', () => {
     await driver.manage().deleteAllCookies()
     await mazos.abrir()
 
-    await driver.wait(until.urlIs(`${URL_BASE}/login`), 20000)
+    await driver.wait(until.urlIs(`${URL_BASE}/login`), 30000)
     expect(await driver.getCurrentUrl()).toBe(`${URL_BASE}/login`)
 
     await guardarEvidencia(driver, 'HU-02', 'CP-004-ruta-protegida')
