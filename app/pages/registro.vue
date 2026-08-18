@@ -119,5 +119,14 @@ async function handleRegister() {
         Crear cuenta
       </UButton>
     </form>
+
+    <template #footer>
+      <p class="text-sm text-muted text-center">
+        ¿Ya tienes cuenta?
+        <ULink to="/login">
+          Iniciar sesión
+        </ULink>
+      </p>
+    </template>
   </UCard>
 </template>
